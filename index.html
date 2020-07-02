@@ -1,0 +1,375 @@
+<!doctype html>
+<html lang="zh">
+<head>
+<meta charset="utf-8">
+<title>有关中国结婚离婚情况的网站</title>
+	<link rel="stylesheet" href="css/1.css">
+	<script type="text/javascript" src="js/2.js"></script>
+	<script src="http://d3js.org/d3.v3.min.js"></script>
+	<script src="https://cdn.bootcss.com/echarts/4.2.1-rc1/echarts.min.js"></script>
+</head>
+
+<body>
+	<div>
+		<main>
+			<header>
+				<ul id="nav">
+					<li><a href="#11">结婚离婚基本情况</a></li>
+					<li><a href="#22">不同省份离婚情况</a></li>
+					<li><a href="#33">离婚主要原因</a></li>
+					<li><a href="#44">现在年轻人对待婚姻的看法</a></li>
+					<li><a href="#55">婚姻相关的法律法规</a></li>
+				</ul>
+			</header>
+			
+			<h1>结婚、离婚说</h1>
+		</main>
+		<a href="#nav"><h2 id="11">结婚、离婚基本情况</h2></a>
+					<h3>一段婚姻就这样经历"美好的恋爱——幸福的婚姻——悲惨的离婚"三个阶段而破碎，最终可能受伤害的还是我们自己，或者伤害到自己的孩子！</h3>
+		<div id="lunbotu">
+            <div id="banner">
+                <img class="m" src="img/1.jpg"  alt="图片一"/>
+                <img class="m" src="img/2.jpg" alt="图片二"/>
+                <img class="m" src="img/3.jpg" alt="图片三"/>
+                <img class="m" src="img/15.jpg" alt="图片四"/>
+                <img class="m" src="img/16.jpg" alt="图片五"/>
+            </div>
+            <div id="biao">
+                <ul>
+                    <li id="biao_1">1</li>
+                    <li id="biao_2">2</li>
+                    <li id="biao_3">3</li>
+                    <li id="biao_4">4</li>
+                    <li id="biao_5">5</li>
+                </ul>
+            </div>
+        </div>
+		<script type="text/javascript">
+        var slid = document.getElementById("banner");
+        //var id = document.getElementById("bt");
+        var imgwidth = document.getElementsByClassName("m");
+        var oli=document.getElementsByTagName("li");
+        //console.log(oli);
+        //console.log(imgwidth );
+        var i =0;
+        auto();
+        oli[0].style.cssText="background:#79AFDC;color:#fff;";
+        function auto(){
+
+            time = setInterval(function(){
+                i++;
+            if(i <= 4) {
+                slid.style.left = slid.offsetLeft - 1226 + "px";
+                oli[i].style.cssText="background:#79AFDC;color:#fff;";
+                oli[i-1].style.cssText="background:none;color:#000;";
+            } else {
+                slid.style.left ="0px";
+                oli[4].style.cssText="background:none;color:#000;";
+                oli[0].style.cssText="background:#79AFDC;color:#fff;";
+                i=0;
+            }
+            console.log(i);
+
+        }, 3000)
+
+        }
+
+            for(var j=0;j<=4;j++){
+                //console.log(imgwidth[j].index);
+            imgwidth[j].index=j;
+            oli[j].index=j;
+            oli[j].onmouseover=function(){
+                this.style.cssText="background:#79AFDC;color:#fff;"    
+                this.onmouseout=function(){
+                    this.style.cssText="background:none;color:#000;"
+                }
+            }
+
+            oli[j].onclick=function(){
+                clearInterval(time);
+                m=this.index;
+                slid.style.left=-m*1226+"px";    
+                i=m;
+                auto();
+                console.log(i);
+            }
+            }   
+    </script>
+		<section>
+			<strong><p>
+				随着时代的进步，现在越来越多的年轻人他们的思想也跟着时代的进步变得更加前卫，经过简单的调查发现，现在很多年轻人对于婚姻的看法和我们的长辈们有着极大的差别，好像越来越不重视婚姻，或者说是有更多的人将结婚离婚当成是"游戏"，在这一场游戏中受伤的既有男性也有女性，因此，有了这个结婚离婚说网站。
+			</p></strong>
+			<p>
+			根据统计发现，近几年结婚和离婚的数据都有不同程度的增减，2008年到2013年我国结婚人数处于上升的状态，2013年则是拐点，此后结婚人数连续6年下跌。2018年全国结婚登记1013.9万对，2019年全国结婚登记947.1万对比上年减少66.8万对，值得注意的是，经济越发达结婚率越低。而离婚情况2010年全国民政部门登记离婚201.0万对，离婚率1.85‰。2018年民政部门登记离婚381.2万对。2019年全国婚姻登记机关共办理离婚登记415.4万对，比上年增加34.2万对。由于离婚现象现在越来越频繁，政府也发布了相关的法律法规，例如，离婚冷静期。这一政策的发布让我们也更加意识到我国现在离婚频率之高。
+			</p>
+			<h3>中国结婚人数情况</h3>
+			<p>从图中可以看出结婚人数在2010年-2013年呈现的是逐年增加的，但是从2014年开始就逐年下降，我们也应该去挖掘挖掘其中的原因。</p>
+			<div id="main1" style="width:1200px;height:600px;"></div>
+    <script type="text/javascript">
+
+        // 基于准备好的dom，初始化echarts实例
+        var myChart = echarts.init(document.getElementById('main1'));
+ 
+        // 指定图表的配置项和数据
+        var option = {
+            title: {
+                text: '中国结婚人数情况'
+            },
+            tooltip: {},
+            legend: {
+                data:['（万人）']
+            },
+            xAxis: {
+                data: ["2010","2011","2012","2013","2014","2015","2016","2017","2018","2019"]
+            },
+            yAxis: {},
+            series: [{
+                name: '结婚人数',
+                type: 'bar',
+                data: [1241, 1302.36, 1323.59, 1346.93, 1306.74,1224.71,1142.82,1063.10,1013.9,947.3]
+            }]
+        };
+ 
+        // 使用刚指定的配置项和数据显示图表。
+        myChart.setOption(option);
+    </script>
+			<h3>中国离婚人数情况</h3>
+			<p>离婚人数和结婚人数对比起来看的话，还是有很大差别的，我们原本以为的美好的婚姻会比支离破碎的离婚来的更陡，但是没想到结果却是截然相反的，这也更应该引起我们的反思。</p>
+			
+			<div id="main2" style="width:1200px;height:600px;"></div>
+    <script type="text/javascript">
+
+        // 基于准备好的dom，初始化echarts实例
+        var myChart = echarts.init(document.getElementById('main2'));
+ 
+        // 指定图表的配置项和数据
+        var option = {
+            title: {
+                text: '中国离婚人数情况'
+            },
+            tooltip: {},
+            legend: {
+                data:['（万人）']
+            },
+            xAxis: {
+                data: ["2010","2011","2012","2013","2014","2015","2016","2017","2018","2019"]
+            },
+            yAxis: {},
+            series: [{
+                name: '离婚人数',
+                type: 'bar',
+                data: [201,220.7,242.3,281.5,295.7,314.9,348.6,370.4,381.2,415.4]
+            }]
+        };
+ 
+        // 使用刚指定的配置项和数据显示图表。
+        myChart.setOption(option);
+    </script>
+			<h3>中国结婚登记人口年龄分布情况</h3>
+			<!-- 为ECharts准备一个具备大小（宽高）的Dom -->
+    <div id="main" style="width:1200px;height:600px;"></div>
+    <script type="text/javascript">
+
+        // 基于准备好的dom，初始化echarts实例
+        var myChart = echarts.init(document.getElementById('main'));
+ 
+        // 指定图表的配置项和数据
+        var option = {
+            title: {
+                text: '全国结婚登记人口年龄情况'
+            },
+            tooltip: {},
+            legend: {
+                data:['（万人）']
+            },
+            xAxis: {
+                data: ["20-24岁","25-29岁","30-34岁","35-39岁","40岁以上"]
+            },
+            yAxis: {},
+            series: [{
+                name: '结婚人数',
+                type: 'bar',
+                data: [435.6, 736.2, 314.7, 154.2, 387.2]
+            }]
+        };
+ 
+        // 使用刚指定的配置项和数据显示图表。
+        myChart.setOption(option);
+    </script>
+			
+			<p>从图形中可以看出，年龄在25岁-29岁结婚的人群最多，占比高达800万人次，而年龄在35岁-39岁的人群结婚人数最少，甚至不如年龄在40岁以上的人群，结婚是自己的事情，不要在意旁人的看法，相信自己不论在何时何地都可以拥有属于自己的美好爱情和幸福婚姻。</p>
+			<p> 				</p>
+		<hr>
+			</section>
+
+		<a href="#nav"><h2 id="22">不同省份离婚情况</h2></a>
+		<div class="box">
+	  <div class="container">
+		<svg width="100%" height="100%"></svg>
+	  </div>
+			
+ <script>
+		window.onload = function() {
+  var width = 600, height = 300;
+  // 创建一个分组用来组合要画的图表元素
+  var main = d3.select('.container svg').append('g')
+   .classed('main', true)
+   .attr('transform', "translate(" + width/2 + ',' + height/2 + ')');
+  // 模拟数据
+  var dataset = [
+   {name: '天津30%', value: 30},
+   {name: '黑龙江21%', value:21},
+   {name: '吉林19%', value: 19},
+   {name: '辽宁16%', value: 16},
+   {name: '北京14%', value: 14}
+  ];
+  // 转换原始数据为能用于绘图的数据
+  var pie = d3.layout.pie()
+   .sort(null)
+   .value(function(d) {
+    return d.value;
+   });
+  // pie是一个函数
+  var pieData = pie(dataset);
+  // 创建计算弧形路径的函数
+  var radius = 100;
+  var arc = d3.svg.arc()
+   .innerRadius(0)
+   .outerRadius(radius);
+  var outerArc = d3.svg.arc()
+   .innerRadius(1.2 * radius)
+   .outerRadius(1.2 * radius);
+  var oArc = d3.svg.arc()
+   .innerRadius(1.1 * radius)
+   .outerRadius(1.1 * radius);
+  var slices = main.append('g').attr('class', 'slices');
+  var lines = main.append('g').attr('class', 'lines');
+  var labels = main.append('g').attr('class', 'labels');
+  // 添加弧形元素（g中的path）
+  var arcs = slices.selectAll('g')
+   .data(pieData)
+   .enter()
+   .append('path')
+   .attr('fill', function(d, i) {
+    return getColor(i);
+   })
+   .attr('d', function(d){
+    return arc(d);
+   });
+  // 添加文字标签
+  var texts = labels.selectAll('text')
+   .data(pieData)
+   .enter()
+   .append('text')
+   .attr('dy', '0.35em')
+   .attr('fill', function(d, i) {
+    return getColor(i);
+   })
+   .text(function(d, i) {
+    return d.data.name;
+   })
+   .style('text-anchor', function(d, i) {
+    return midAngel(d)<Math.PI ? 'start' : 'end';
+   })
+   .attr('transform', function(d, i) {
+    // 找出外弧形的中心点
+    var pos = outerArc.centroid(d);
+    // 改变文字标识的x坐标
+    pos[0] = radius * (midAngel(d)<Math.PI ? 1.5 : -1.5);
+
+    return 'translate(' + pos + ')';
+   })
+   .style('opacity', 1);
+	var polylines = lines.selectAll('polyline')
+   .data(pieData)
+   .enter()
+   .append('polyline')
+   .attr('points', function(d) {
+    return [arc.centroid(d), arc.centroid(d), arc.centroid(d)];
+   })
+   .attr('points', function(d) {
+    var pos = outerArc.centroid(d);
+    pos[0] = radius * (midAngel(d)<Math.PI ? 1.5 : -1.5);
+    return [oArc.centroid(d), outerArc.centroid(d), pos];
+   })
+   .style('opacity', 0.5);
+  };
+  function midAngel(d) {
+  return d.startAngle + (d.endAngle - d.startAngle)/2;
+  }
+  function getColor(idx) {
+  var palette = [
+   '#2ec7c9', '#b6a2de', '#5ab1ef', '#ffb980', '#d87a80',
+   '#8d98b3', '#e5cf0d', '#97b552', '#95706d', '#dc69aa',
+   '#07a2a4', '#9a7fd1', '#588dd5', '#f5994e', '#c05050',
+   '#59678c', '#c9ab00', '#7eb00a', '#6f5553', '#c14089'
+  ]
+  return palette[idx % palette.length];
+  }
+</script>
+		
+		<p>就在最近民政部发布了各省婚姻状况的统计数据，数据当中清楚的显示出了中国婚姻的现状，其中去年全年全国结婚登记人数为1010万对，相较去年又有所降低，结婚人数已经连续4年降低了，离婚人数为380万对，相较去年又有提升，这已经是我国离婚人数连续15年上涨了!虽然我们常说不要将就的婚姻也不要将就的日子，但是如果真的选择结婚了，就不要轻易的放弃的婚姻，这不仅是对自己的不负责任，也是对家人和孩子的伤害!所以在此告诫所有的未婚男女青年，不要轻易的靠近婚姻，也不要草率的结束婚姻。</p>
+			</div>
+		<a href="#nav"><h2 id="33">离婚的主要原因</h2></a>
+		<div class="box">
+		<p>
+		据统计，2018年全年，我国办理离婚登记的人数已达到当年办理结婚人数的二分之一，全年离婚率在40%左右。我们知道，婚姻的稳定是家庭幸福的基础，究竟都是什么原因造成了原本相爱的两人选择以离婚结束这段感情呢？</p>
+			<h4>萨提亚家庭治疗流派</h4>
+			<a href="原因1.html"><img src="img/3.jpg" alt="离婚图片"></a>
+		</div>
+		<hr>
+		<div class="box">
+			<h4>情绪发泄</h4>
+			<a href="原因2.html"><img src="img/17.jpg" alt="离婚图片"></a>
+			</div>
+		<hr>
+		<div class="box">
+			<h4>责任感缺乏</h4>
+		<a href="原因3.html"><img src="img/18.jpg" alt="离婚图片"></a>
+		</div>
+		<hr>
+		<div class="box">
+			<h4>契约关系</h4>
+		<a href="原因4.html"><img src="img/22.jpg" alt="离婚图片"></a>
+		</div>
+
+		<a href="#nav"><h2 id="44">现在年轻人对待婚姻的看法</h2></a>
+		<div class="box">
+		<h3>中国结婚率情况</h3>
+			<img src="img/10.jpg" alt="中国结婚率情况">
+			<p>从中国结婚率的的折线图看来也是呈现出了先增后减的现象，所以从全国人口来看，整体都是有下滑的趋势，那么其中的原因究竟是什么呢？</p>
+		<p>在我看来还是和年轻人对待婚姻的看法有着密切的联系。原因总结了一下，大概有一下几种情况。</p>
+		<p>第一种：是恋爱至上型<br>什么样的人才算是恋爱至上的人呢？讲一个在现在年轻人中流传很广的一段话作为例子：女孩子总喜欢说，宁愿人选一个只有100块钱，愿意给你花99块，也不愿意选一个拥有10000块钱，却只给自己花100块的人。这样的人就是恋爱至上的人。他们并不在乎金钱和物质条件，只要感觉你对我足够好，感觉对了，无论你条件多差，我都可以和你结婚，陪你一起吃苦。而社会上那些十分畅销的网文、宫斗剧，更是教出来了一群爱情至上的人,他们可能连自己是谁，连自己需要什么都没有清楚。略看见个男人/女人，贴个标签，就飞蛾扑火一样上去，无他不可，不爱非死不可。恋爱之上的人把爱情看得很重，超越了友情甚至是亲情以及外界一切一切的东西，然而这不过反映出了这个人的依赖性罢了，他们把重心完全放在恋爱对象身上，以他喜为喜，以他悲为悲，他让自己往东，就绝不往西，他说雪是黑的，也立马会点头应是，太过于依赖对方，已经失去了理智，丧失了自我。</p><br><p>第二种：金钱至上型<br>这里的金钱并不是我们通常说的钱，它包括前途、金钱、利益等。《致青春》里，出身贫寒的陈孝正，在前途和爱情面前，就毫不犹豫地放弃了后者。为了拿到出国留学的名额，跟郑微分手。郑微不懂：如果我愿意跟你一起吃苦呢？陈孝正说：我不愿意。我们在看这部电影的时候，一度觉得陈孝正是当之无愧的渣男，然而，经过这么几年，年龄渐长的我们再回头看，却突然理解了陈孝正的那一句：我的人生是一栋只能建造一次的楼房，我必须让它精确无比,不能有一厘米差池——所以，我太紧张,害怕行差步错。年轻人穷得连养活自己都困难，还谈什么梦想与爱情？这不过是陈孝正自己对婚姻的态度罢了，别人又有什么资格去评头论足呢？金钱至上型的婚姻观念，反而反映出了很积极的心态。不管是通过什么渠道，方法对还是不对，至少他们是往上走的，向更好的生活努力（当然，在这里并不支持以不正当或不道德的方法来努力）。</p><br><p>第三种：离婚现象的日益增多让他们畏惧婚姻<br>年纪大一点的90后们应该都经历过相亲，很多人在相亲一段时间后感觉双方合适，就在父母催促下结了婚。这种草草结婚的例子很多，因为草率结婚而离婚的例子也很多，人的性格能藏很深，婚前不在意，婚后爆发，稍有不和就大吵大闹，而且现在都是独生子女，娇气得很。他们离就离了，可年轻一点的可都看在眼里，他们就会想结了一个不合就要离，这还有什么好结的。</p><br><p>第四种：丁克家族<br>夫妻双方以事业为重，不愿意让孩子影响自己的工作。对传统结婚必须生子观念有自己想法，例如全新的婚恋观、家庭观、生育观。所以拒绝“第三者”（孩子）插足。不让自己和孩子太累，认为自己势必会为子女成长费尽心血，所以还不如不生育。对家庭生活没有信心，在自己对生活还没有十足的把握时，不要孩子。受经济条件的制约，认为自己现在的工作还不够稳定，希望能创造更好的经济条件。把家庭幸福的条件放宽，认为没有儿女承欢也一样可以活得很充实。相信社会保障功能的进步，这些家庭认为“防老”未必非得“养儿”，家庭的保障功能逐步由社会来承担。</p>
+			</div>
+		<a href="#nav"><h2 id="55">婚姻相关的法律法规</h2></a>
+		<table>
+			<th>相关法律</th>
+			<tr>
+				<td>《婚姻法》</td>
+				<td>《婚姻登记条例》</td>
+				<td>《收养法》</td>
+				<td>《继承法》</td>
+				<td>《最高人民法院关于适用〈中华人民共和国婚姻法〉若干问题的解释（一）》</td>
+				<td>《最高人民法院关于适用〈中华人民共和国婚姻法〉若干问题的解释（二）》</td>
+				<td>《最高人民法院关于适用〈中华人民共和国婚姻法〉若干问题的解释（三）》</td>
+				<td>《最高人民法院关于人民法院审理离婚案件处理子女抚养问题的若干具体意见》</td>
+			</tr>
+			<th>主要内容</th>
+			<tr>
+				<td>规定的内容包括：原则、结婚、家庭关系、离婚、救助措施与法律责任<a href="https://baike.so.com/doc/5549264-5764372.html"><p>--详情</p></a></td>
+				<td>规定的内容包括：婚姻登记工作、保障婚姻自由、一夫一妻、男女平等的婚姻制度的实施，保护婚姻当事人的合法权益<a href="http://www.gov.cn/banshi/2005-08/21/content_25042.htm"><p>--详情</p></a></td>
+				<td>规定的内容包括：总则、收养关系的成立、收养的效力、收养关系的解除、法律责任<a href="http://www.luolong.gov.cn/html/1/149/151/162/224/227/5375.html"><p>--详情</p></a></td>
+				<td>规定的内容包括：总则、法定继承、遗嘱继承和遗赠、遗产的处理<a href="https://duxiaofa.baidu.com/detail?cid=7c44e917fbc2901880de00bbaeb4ec75_law&count=37&originquery=%E3%80%8A%E7%BB%A7%E6%89%BF%E6%B3%95%E3%80%8B&searchType=statute"><p>--详情</p></a></td>
+				<td><a href="http://www.110.com/fagui/law_18685.html"><p>详情请点这里</p></a></td>
+				<td><a href="http://blog.sina.com.cn/s/blog_65c694e60102zmxu.html"><p>详情请点这里</p></a></td>
+				<td><a href="https://wenku.baidu.com/view/94d133a10029bd64783e2c03.html"><p>详情请点这里</p></a></td>
+				<td><a href="http://www.maxlaw.cn/changshi/znfyfg/4.html"><p>详情请点这里</p></a></td>
+			</tr>
+		</table>
+	</div>
+	<br><hr>
+	<footer>
+	<br>数据来源：中国产业研究院<br><br>中国情报网<br><br>有问题请联系：1475070113@qq.com
+	</footer>
+</body>
+</html>
